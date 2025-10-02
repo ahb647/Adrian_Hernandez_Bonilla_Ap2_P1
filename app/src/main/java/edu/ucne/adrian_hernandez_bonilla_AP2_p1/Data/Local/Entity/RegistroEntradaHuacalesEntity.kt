@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "EntradasHuacales")
 data class EntradaHuacalesEntity(
     @PrimaryKey(autoGenerate = true)
-    val idEntrada: Int? = 0, // NO nullable
+    val idEntrada: Int? = null,
     val fecha: String = "",
     val nombreCliente: String = "",
     val cantidad: Int = 0,

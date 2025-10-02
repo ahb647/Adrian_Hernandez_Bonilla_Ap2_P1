@@ -20,8 +20,8 @@ class EntradaHuacalesRepositoryImpl @Inject constructor(
         dao.getById(id)?.asExternalModel()
 
     override suspend fun insertEntrada(entrada: EntradaHuacales) {
-        // Forzar id = 0 para autogenerar
-        dao.insert(entrada.toEntity().copy(idEntrada = 0))
+        // ⚡ Ya no forces copy(idEntrada = 0), solo deja que Room genere el ID
+        dao.insert(entrada.toEntity())
     }
 
     override suspend fun updateEntrada(entrada: EntradaHuacales) {
