@@ -73,8 +73,8 @@ class RegistroEntradaHuacalesViewModel @Inject constructor(
             if (lista.any { it.nombreCliente.equals(entrada.nombreCliente, ignoreCase = true) }) {
                 sendEvent("No se puede agregar una entrada con el mismo nombre de cliente")
             } else {
-                // Para Room, si idEntrada es 0 o null, será autogenerado
-                val entradaAInsertar = if (entrada.idEntrada == 0) {
+                // Si idEntrada es null o 0 => se inserta como null para que Room autogenere
+                val entradaAInsertar = if (entrada.idEntrada == null || entrada.idEntrada == 0) {
                     entrada.copy(idEntrada = null)
                 } else entrada
 
