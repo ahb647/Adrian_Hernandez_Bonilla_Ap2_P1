@@ -1,0 +1,23 @@
+import edu.ucne.adrian_hernandez_bonilla_AP2_p1.Data.Local.Entity.EntradaHuacalesEntity
+import edu.ucne.adrian_hernandez_bonilla_AP2_p1.Domain.Model.EntradaHuacales
+
+// Convierte la entidad de Room a modelo de dominio
+fun EntradaHuacalesEntity.asExternalModel(): EntradaHuacales {
+    return EntradaHuacales(
+        idEntrada = this.idEntrada, // ahora siempre int
+        fecha = this.fecha,
+        nombreCliente = this.nombreCliente,
+        cantidad = this.cantidad,
+        precio = this.precio
+    )
+}
+
+fun EntradaHuacales.toEntity(): EntradaHuacalesEntity {
+    return EntradaHuacalesEntity(
+        idEntrada = if (this.idEntrada == 0) 0 else this.idEntrada,
+        fecha = this.fecha,
+        nombreCliente = this.nombreCliente,
+        cantidad = this.cantidad,
+        precio = this.precio
+    )
+}
