@@ -4,7 +4,7 @@ import edu.ucne.adrian_hernandez_bonilla_AP2_p1.Domain.Model.EntradaHuacales
 // Convierte la entidad de Room a modelo de dominio
 fun EntradaHuacalesEntity.asExternalModel(): EntradaHuacales {
     return EntradaHuacales(
-        idEntrada = this.idEntrada, // ahora siempre int
+        idEntrada = this.idEntrada,
         fecha = this.fecha,
         nombreCliente = this.nombreCliente,
         cantidad = this.cantidad,
@@ -12,9 +12,10 @@ fun EntradaHuacalesEntity.asExternalModel(): EntradaHuacales {
     )
 }
 
+
 fun EntradaHuacales.toEntity(): EntradaHuacalesEntity {
     return EntradaHuacalesEntity(
-        idEntrada = if (this.idEntrada == 0) 0 else this.idEntrada,
+        idEntrada = this.idEntrada,
         fecha = this.fecha,
         nombreCliente = this.nombreCliente,
         cantidad = this.cantidad,
